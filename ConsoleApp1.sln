@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp4", "ConsoleApp4\ConsoleApp4.csproj", "{685B9BC3-3331-4EB6-B681-2C142E078FD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp5", "ConsoleApp5\ConsoleApp5.csproj", "{8C0B5437-901E-4FB5-8B6E-F420283C3D9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{685B9BC3-3331-4EB6-B681-2C142E078FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{685B9BC3-3331-4EB6-B681-2C142E078FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{685B9BC3-3331-4EB6-B681-2C142E078FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C0B5437-901E-4FB5-8B6E-F420283C3D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C0B5437-901E-4FB5-8B6E-F420283C3D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C0B5437-901E-4FB5-8B6E-F420283C3D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C0B5437-901E-4FB5-8B6E-F420283C3D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
