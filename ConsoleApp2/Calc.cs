@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Привет, введи первое значение.");
+﻿// Cделать калькулятор: запрашивается на вход в начале первое значение, потом второе и потом действие, результат вывести на экран
+
+Console.WriteLine("Привет, введи первое значение.");
 float arg1 = float.Parse(Console.ReadLine());
 Console.WriteLine("Введи второе значение.");
 float arg2 = float.Parse(Console.ReadLine());
