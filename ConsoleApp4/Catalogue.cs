@@ -20,11 +20,11 @@ employes[1, 1] = Console.ReadLine();
 Console.WriteLine("Возраст второго работника:");
 employes[1, 2] = Console.ReadLine();
 
-Console.WriteLine("Имя второго работника:");
+Console.WriteLine("Имя третьего работника:");
 employes[2, 0] = Console.ReadLine();
-Console.WriteLine("Фамилия второго работника:");
+Console.WriteLine("Фамилия третьего работника:");
 employes[2, 1] = Console.ReadLine();
-Console.WriteLine("Возраст второго работника:");
+Console.WriteLine("Возраст третьего работника:");
 employes[2, 2] = Console.ReadLine();
 
 Console.WriteLine("Укажите номер работника");
