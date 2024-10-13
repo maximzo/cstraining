@@ -41,6 +41,7 @@ while (IsChickenAlive())
             break;
     }
 }
+Console.WriteLine($"Тебе удалось собрать {yourEggs} яйцов.");
 Console.ReadKey();
 
 void FeedChicken(int seedCount)
