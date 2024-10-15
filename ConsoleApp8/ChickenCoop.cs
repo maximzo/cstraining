@@ -9,7 +9,7 @@ int yourEggs = 0;
 Console.WriteLine("Привет, у тебя есть 3 курицы.");
 Console.WriteLine("Если их своевременно кормить, они будет нести яйца.");
 
-while (IsAnyChickenAlive() > 0)
+while (GetAliveChickenCount() > 0)
 {
     Console.WriteLine($"Выбери одну из следующих куриц:{aliveChickens}");
     if (int.TryParse(Console.ReadLine(), out int chNum))
@@ -58,11 +58,18 @@ Console.WriteLine("Похоже живых куриц в твоем курятн
 Console.WriteLine($"Тебе удалось собрать {yourEggs} яйцов");
 Console.ReadKey();
 
+void PrintColor(string msg, ConsoleColor color)
+{
+    Console.ForegroundColor = color;
+    Console.WriteLine(msg);
+    Console.ResetColor();
+}
+
 void HungerCounter()
 {
     for (int h = 0; h < hunger.Length; h++)
     {
-        hunger[h]--;
+        if (GetChickenState(h) != ChickenState.Wasted) hunger[h]--;
     }
 }
 
@@ -87,9 +94,7 @@ void LaidAnEgg(int chIndex)
 {
     if (chickenStates[chIndex] != ChickenState.Egg)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"Курица {chIndex + 1} снесла яйцо.");
-        Console.ResetColor();
+        PrintColor("Курица снесла яйцо.", ConsoleColor.Green);
         chickenStates[chIndex] = ChickenState.Egg;
     }
 }
@@ -99,10 +104,8 @@ void TakeAnEgg(int chIndex)
     if (chickenStates[chIndex] == ChickenState.Egg)
     {
         yourEggs++;
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Ты забрал яйцо у курицы {chIndex + 1}.");
-        Console.WriteLine($"Теперь кол-во яиц в твоем кармане - {yourEggs}");
-        Console.ResetColor();
+        PrintColor($"Ты забрал яйцо у курицы {chIndex + 1}.", ConsoleColor.Yellow);
+        PrintColor($"Теперь кол-во яиц в твоем кармане - {yourEggs}", ConsoleColor.Yellow);
         chickenStates[chIndex] = ChickenState.Hungry;
     }
     else Console.WriteLine("У этой курицы пока нет для тебя яиц...");
@@ -112,22 +115,18 @@ ChickenState GetChickenState(int chIndex)
 {
     if (hunger[chIndex] < 1)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Курица {chIndex + 1} умерла с голоду :(");
-        Console.ResetColor();
+        PrintColor($"Курица {chIndex + 1} умерла с голоду :(", ConsoleColor.Red);
         return ChickenState.Wasted;
     }
     if (hunger[chIndex] > 10)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Курица {chIndex + 1} умерла от обжорства :)");
-        Console.ResetColor();
+        PrintColor($"Курица {chIndex + 1} умерла от обжорства :)", ConsoleColor.Red);
         return ChickenState.Wasted;
     }
     return ChickenState.FedUp;
 }
 
-int IsAnyChickenAlive()
+int GetAliveChickenCount()
 {
     aliveChickens = "";
     int alive = 0;

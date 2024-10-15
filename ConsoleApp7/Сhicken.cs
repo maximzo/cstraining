@@ -44,6 +44,13 @@ while (IsChickenAlive())
 Console.WriteLine($"Тебе удалось собрать {yourEggs} яйцов.");
 Console.ReadKey();
 
+void PrintColor(string msg, ConsoleColor color)
+{
+    Console.ForegroundColor = color;
+    Console.WriteLine(msg);
+    Console.ResetColor();
+}
+
 void FeedChicken(int seedCount)
 {
     if (seedCount < 3)
@@ -65,9 +72,7 @@ void LaidAnEgg()
 {
     if (!hasAnEgg)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Курица снесла яйцо.");
-        Console.ResetColor();
+        PrintColor("Курица снесла яйцо.", ConsoleColor.Green);
         hasAnEgg = true;
     }
 }
@@ -77,10 +82,8 @@ void TakeAnEgg()
     if (hasAnEgg)
     {
         yourEggs++;
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("Ты забрал яйцо у курицы.");
-        Console.WriteLine($"Теперь кол-во яиц в твоем кармане - {yourEggs}");
-        Console.ResetColor();
+        PrintColor("Ты забрал яйцо у курицы.", ConsoleColor.Yellow);
+        PrintColor($"Теперь кол-во яиц в твоем кармане - {yourEggs}", ConsoleColor.Yellow);
         hasAnEgg = false;
     }
     else Console.WriteLine("У курицы пока нет для тебя яиц...");
@@ -90,16 +93,12 @@ bool IsChickenAlive()
 {
     if (hunger < 1)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Курица умерла с голоду :(");
-        Console.ResetColor();
+        PrintColor("Курица умерла с голоду :(", ConsoleColor.Red);
         return false;
     }
     if (hunger > 10)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Курица умерла от обжорства :)");
-        Console.ResetColor();
+        PrintColor("Курица умерла от обжорства :)", ConsoleColor.Red);
         return false;
     }
     return true;
